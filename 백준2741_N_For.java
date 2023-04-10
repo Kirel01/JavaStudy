@@ -12,6 +12,7 @@ public class N_For {
 
 		for (int i = 1; i < N + 1; i++)
 			System.out.println(i);
+		System.out.println(N);
 
 		sc.close();
 	}
