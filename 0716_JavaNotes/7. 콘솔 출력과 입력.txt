@@ -1,0 +1,21 @@
+1. 콘솔 출력
+    1) System.out.println()
+       System.out.print()
+       System.out.printf()
+
+    2) System.out.printf("포맷 문자열", 데이터1, 데이터2, ....)
+    
+       System.out.printf("정수: %d, 실수: %f, 글자: %c, 글자들: %s", 10, 3.14, 'A', "이순신")
+      
+         - 서식 지정자              출력행태
+            %d               10진수 정수 형태 출력
+            %o               8진수 정수 형태 출력
+            %x               16진수 정수 형태 출력
+            %f                       실수
+            %e               e 표기법 기반 실수 출력
+            %s                    문자열 출력
+            %c                     문자 출력
+
+2. 콘솔 입력 
+    1) Scanner 클래스
+    
