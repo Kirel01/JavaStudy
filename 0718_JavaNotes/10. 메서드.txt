@@ -1,0 +1,77 @@
+1. Math.random()
+    1) 0.0 <= Math.random() < 1.0 
+        - 특정 범위의 난수 리턴 
+    
+    2) 1~10까지의 임의의 정수 얻기 
+
+       0.0 * 10 <= Math.random() * 10 < 1.0 * 10
+       --------                         ---------
+        0.0     (0,1,2,3,4,5,6,7,8,9)     10.0
+
+       0.0 * 10 + 1 <= Math.random() * 10 + 1 < 1.0 * 10 + 1
+       ------------                            -------------
+        1.0          (1,2,3,4,5,6,7,8,9,10)        11.0
+    
+    3) 공식
+        int num = (int)(Math.random() * n) + start 
+        
+        - 주사위 번호 뽑기
+            int num = (int)(Math.random() * 6) + 1 
+        - 로또 번호 뽑기 
+            int num = (int)(Math.random() * 45) + 1 
+
+2. 메서드 
+    1) 함수 (function) 
+    2) 클래스 안에 존재하는 함수 
+    3) 수학에서의 함수 
+
+        숫자1, 숫자2 
+            ||
+            \/
+            --------------
+            |            |
+            |  더하기함수 |
+            |            |
+            --------------
+                        ||
+                        \/
+                        숫자의 합
+
+          num1, num2
+            ||
+            \/
+            --------------
+            |            |
+            |  addNum()  |
+            |            |
+            --------------
+                        ||
+                        \/
+                        result 
+
+    4) 메서드 정의 
+      int addNum(int num1, int num2) {
+        int result = num1 + num2;
+        return result;
+      }                        
+
+    5) main() 메서드 : 프로그램 시작(entryPoint) 
+
+      public static void main(String[] args) {
+        System.out.println("이순신");
+        addNum(1,2);
+      } 
+
+    6) 메서드 종료하기 
+        - return : 어떤 값을 반환하는데 사용하는 예약어   
+
+3. 메서드 정의하기 
+  1) 
+
+      반환형  메서드명      매개변수 
+      --- ------  ------------------
+      int addNum (int num, int num2) {
+         int result = num1 + num2;
+         return result;
+      }
+
