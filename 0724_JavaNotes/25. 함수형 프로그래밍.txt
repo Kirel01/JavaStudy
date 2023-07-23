@@ -1,0 +1,141 @@
+1. 비교 
+
+    1) 명령형 프로그래밍
+        (Imperative Programming)
+        - OOP 객체 지향 프로그래밍
+        - 어떻게 하여야 하는가?
+        - How to do?
+
+    2) 선언형 프로그래밍
+        (Declarative Programming)
+        - Functional Programming
+        - 무엇을 하여야 하는가?
+        - What to do?
+
+2. 비유 
+    ex) 유저 리스트가 주어졌을 때, 
+        검증되지 않은 유저들의 이메일을 리스트로 주세요.
+
+    1) 명령형 프로그래밍
+        ①②③④⑤⑥⑦⑧⑨⑩ How to do?
+        ① 이메일을 담을 리스트 선언 
+        ② 루프 
+        ③ 유저 선언 
+        ④ 검증되지 않았는지 체크 
+        ⑤ 않았다면 변수에 이메일 추출
+        ⑥ 이메일 리스트에 넣기 
+
+     2) 선언형 프로그래밍  
+        What to do?      
+        ① 유저리스트에서
+            ① 검증되지 않은 유저만 골라내서
+            ② 이메일을 추출해서
+        ② 리스트로 받기 
+
+3. Function as First-Class Citizen
+    1) 1급 시민으로서의 함수 
+    2) 1급 시민의 조건 
+        - 함수/메서드의 매개변수(parameter)로서 전달할수 있는가?
+        - 함수/메서드의 반환값(return)이 될수 있는가?
+        - 변수에 담을 수 있는가?
+
+4. 함수형 프로그래밍을 통해 우리가 얻는 것
+    1) 역할에 충실한 코드 
+        - 가독성 좋은 코드 
+        - 유지/보수에 용이
+        - 버그로부터 안전 
+        - 확장성에 용이 
+    2) 패러다임의 전환 
+        - Stream, Optional 등 다양한 활용
+
+5. Java 
+
+    OOP   ==>    Java      <== f(x)
+
+6. 함수형 프로그래밍과 람다식(Lambda expression)
+    1) 자바는 객체 지향 프로그래밍
+        - 기능을 수행하기 위해서는 객체를 만들고
+          그 객체 내부에 멤버 변수를 선언하고 
+          기능을 수행하는 메서드를 구현 
+    2) 자바 8부터 함수형 프로그래밍 방식을 지원하고
+       이를 람다식이라 함.
+    3) 함수의 구현과 호출만으로 프로그래밍이 수행되는 방식 
+
+    4) Functional Programming (FP)
+        - 순수함수(pure function)를 구현하고 호출함
+            - 외부 자료에 부수적인 영향(side effect)를 
+              주지 않도록 구현하는 방식.
+            - 매개변수만을 사용하여 만드는 함수임.
+                - 함수 내부에서 함수 외부에 있는 변수를 사용하지 않아
+                  함수가 수행되더라도 외부에는 영향을 주지 않음.
+        - 여러 자료가 동시에 수행되는 병렬처리가 가능함.
+        - 함수의 기능이 자료에 독립적임을 보장함.
+
+7. 람다식(Lambda expression) 문법
+    1) 익명 함수 
+    2) 매개 변수와 매개 변수를 이용한 실행문 
+        (매개변수) -> {실행문;}      
+
+    3) 예
+        - 두 수를 입력 받아 더하는 add() 함수
+        - int add(int x, int y) {
+            return x + y;
+          }        
+
+        - 람다식으로 표현 
+            (int x, int y) -> {return x + y;}      
+        
+        - 매개 변수가 하나인 경우
+            - 자료형과 괄호 생략가능 
+                - 예)  str -> {System.out.println(str);} 
+        
+        - 매개 변수가 두 개이상인 경우 괄호를 생략할 수 없음
+                - 예) x, y -> {System.out.println(x+y);}  //오류
+
+        - 실행문이 한 문장인 경우 중괄호 생략 가능                                                                  
+                - 예)  str -> System.out.println(str); 
+
+        - 실행문이 한 문장이라도 return문(반환문)은 중괄호를 생략 불가
+                - 예)  str -> return str.length();      //오류 
+
+        - 실행문이 한 문장의 반환인 경우엔 return과 중괄호를 모두 생략가능
+                - 예) (x, y) -> x + y;  
+                      str -> str.length;
+
+8. 함수형 인터페이스 
+    1) 람다식을 선언하기 위한 인터페이스 
+    2) 익명 함수와 매개 변수만으로 구현되므로 
+       인터페이스는 단 하나의 메서드만을 선언해야 함.
+        
+    3) @FunctionalInterface 애노테이션(annotation)
+        - 내부에 여러 개의 메서드를 선언하면 에러남 
+        - 단 하나의 abstract method만을 가지는 인터페이스 
+          (Single Abstract Method Interface, SAM)
+        - Default method와 static method는 이미 구현이 되어있으므로 
+          있어도 괜찮음           
+
+    4)  @FunctionalInterface
+        public interface Function<T,R> {
+            R apply(T t);
+        } 
+
+        함수의 구성요소 
+            - 함수의 이름 
+            - 반환값의 타입 (return type)
+            - 매개변수 (parameters) 
+            - 함수의 내용 (body)    
+
+        (Integer x) -> {return x + 10;}    
+            - 매개변수의 타입의 유추가 가능할 경우 타입 생략 가능              
+            - 매개변수가 하나일 경우 괄호 생략 가능 
+            - 바로 리턴하는 경우 중괄호 생략 가능 
+            
+            x -> x+10;
+
+
+    5) 매개변수가 두 개일 때
+
+        @FunctionalInterface
+        public interface BiFunction<T,U,R> {
+            R apply(T t, U u);
+        }            

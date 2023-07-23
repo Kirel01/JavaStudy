@@ -1,0 +1,9 @@
+1. 객체 지향 프로그래밍과 람다식 비교 
+    1) 예 : 문자열 두 개를 연결하여 출력하는 것을 구현 
+
+2. Functional Interface
+    1) Supplier<T>
+        - 아낌없이 주는 나무
+    2) Consumer<T>
+        - 먹보
+                
